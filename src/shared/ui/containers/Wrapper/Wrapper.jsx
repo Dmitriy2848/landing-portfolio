@@ -5,7 +5,11 @@ const StyledWrapper = styled.div`
         display: flex;
         flex-direction: row;
         width: ${ ( {width} ) => width || '' };
+        max-width: ${ ( {maxWidth} ) => maxWidth || '' };
         height: ${ ( {height} ) => height || '' };
+        padding: ${ ( {padding} ) => padding || '' };
+        margin: ${ ( {margin} ) => margin || '' };
+        background: ${ ( {bg} ) => bg || '' };
     }
     ${ ( {$for} ) => {
         switch ($for) {
@@ -26,10 +30,10 @@ const StyledWrapper = styled.div`
 }
 `
 
-export default function Wrapper( {children, $for} ) {
+export default function Wrapper( props ) {
     return (
-        <StyledWrapper $for={$for} >
-            {children}
+        <StyledWrapper {...props} >
+            {props.children}
         </StyledWrapper>
     )
 }

@@ -4,7 +4,6 @@ const StyledLink = styled.a`
     & {
         font-size: 16px;
         color: #727275;
-        text-decoration: none;
         transition: .1s;
     }
     &:hover {
