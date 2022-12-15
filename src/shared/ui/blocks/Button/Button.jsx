@@ -6,25 +6,30 @@ const StyledButton = styled.button`
         outline: none;
         cursor: pointer;
         margin: ${ ( {margin} ) => margin || '' };
-        padding: ${ ( {padding} ) => padding || '10px 15px' };
-        font-size: 14px;
+        padding: ${ ( {padding} ) => padding || '' };
+        font-size: 16px;
         color: #fff;
         background-color: ${ ( {bgColor} ) => bgColor || 'transparent' };
-        backdrop-filter: blur(5px);
-        border: ${ ( {border} ) => border || '1px solid #fff' };
+        border: ${ ( {border} ) => border || '1px solid' };
         border-radius: 50px;
-        transition: .2s;
-
+        transition: .1s;
+        height: ${ ( {height} ) => height || '' };
+        opacity: .2;
+        
     }
-    &:active {
-        transform: scale(95%);
+    &:hover {
+        opacity: 1;
+        border-color: ${ ( {borderColor} ) => borderColor || '#fff'};
+        color: ${ ( {color} ) => color || '#fff'};
     }
 `
 
-export default function Button( {text} ) {
+function Button( props ) {
     return (
-        <StyledButton>
-            {text}
+        <StyledButton {...props}>
+            {props.children}
         </StyledButton>
     )
 }
+
+export default Button;

@@ -1,19 +1,23 @@
 import styled from "styled-components";
 
-const StyledDescription = styled.p`
+
+const StyledParagraph = styled.p`
     & {
         font-size: 16px;
         color: #fff;
         width: ${ ( {width} ) => width || '' };
     }
-    
 `
 
-export default function Description( {children} ) {
+function Paragraph( {text} ) {
     return (
-        <StyledDescription>
-            {children}
-        </StyledDescription>
+        <StyledParagraph>
+            {text}
+        </StyledParagraph>
     )
 }
+
+
+export default Paragraph
+
 

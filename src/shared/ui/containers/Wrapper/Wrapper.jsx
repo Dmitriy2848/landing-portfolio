@@ -1,39 +1,23 @@
-import styled, {css} from "styled-components";
+import styled from "styled-components";
 
-const StyledWrapper = styled.div`
+
+const Wrapper = styled.div`
     & {
         display: flex;
-        flex-direction: row;
+        flex-direction: ${ ( {flexDirection} ) => flexDirection || '' };
         width: ${ ( {width} ) => width || '' };
         max-width: ${ ( {maxWidth} ) => maxWidth || '' };
+        
         height: ${ ( {height} ) => height || '' };
         padding: ${ ( {padding} ) => padding || '' };
         margin: ${ ( {margin} ) => margin || '' };
         background: ${ ( {bg} ) => bg || '' };
+
+        overflow: ${ ( {overflow} ) => overflow || '' };
+        max-height: ${ ( {maxHeight} ) => maxHeight || '' };
+        transition: .2s;
     }
-    ${ ( {$for} ) => {
-        switch ($for) {
-            case 'tags': 
-                return css`
-                    & span:not(:first-child) {
-                      margin-left: 15px;
-                    }
-                `
-            case 'links':
-                return css`
-                    
-                `
-            default:
-                return true
-        }
-    }
-}
 `
 
-export default function Wrapper( props ) {
-    return (
-        <StyledWrapper {...props} >
-            {props.children}
-        </StyledWrapper>
-    )
-}
+
+export default Wrapper;

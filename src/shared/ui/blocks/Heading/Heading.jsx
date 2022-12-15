@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const StyledHeading = styled.div`
     & {
-        color: #e3e0db;
+        color:  ${ ( {color} ) => color || '#e3e0db' } ;
         font-size: ${ ({level}) => level ? `${90 / level}px` : '14px' };
         text-transform: uppercase;
     }
@@ -11,10 +11,12 @@ const StyledHeading = styled.div`
     }
 `
 
-export default function Heading({level = 1, children}) {
+function Heading({level = 1, text, color}) {
     return (
-        <StyledHeading as={`h${level}`} level={level} >
-            {children}
+        <StyledHeading as={`h${level}`} level={level} color={color}>
+            {text}
         </StyledHeading>
     )
 }
+
+export default Heading

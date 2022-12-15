@@ -1,8 +1,5 @@
 body {
     background-color: #121317;
-}
-.App {
-    margin: 50px;
-}
-.video {
+    overflow: hidden;
+
 }

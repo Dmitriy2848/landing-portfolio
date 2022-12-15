@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
-const StyledFlexContainer = styled.div`
+
+const Container = styled.div`
     & {
         width: ${ ( {width} ) => width || '' };
         height: ${ ( {height} ) => height || '' };
@@ -9,16 +10,9 @@ const StyledFlexContainer = styled.div`
         display: flex;
         flex-direction: ${ ( {flexDirection} ) => flexDirection || 'column' };
         align-items: ${ ( {alignItems} ) => alignItems || '' };
-        justify-content: space-between;
+        justify-content: ${ ( {justifyContent} ) => justifyContent || 'space-between' } ;
     }
 `
 
-function FlexContainer( props ) {
-    return (
-        <StyledFlexContainer {...props} >
-            {props.children}
-        </StyledFlexContainer>
-    )
-}
 
-export default FlexContainer;
+export default Container;
